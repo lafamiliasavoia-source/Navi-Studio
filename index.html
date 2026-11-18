@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071b36">
+  <title>Navi-Studio | Jeux & Applications</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #071b36;
+      color: white;
+    }
+    header {
+      padding: 22px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #0b2343;
+      border-bottom: 1px solid #234568;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .logo { font-size: 27px; font-weight: bold; color: #55baff; }
+    nav a {
+      color: white; text-decoration: none;
+      margin-left: 20px; font-size: 14px;
+    }
+    nav a:hover { color: #55baff; }
+    .hero {
+      text-align: center;
+      padding: 85px 20px 65px;
+      background: linear-gradient(135deg,#103d70,#071b36);
+    }
+    .hero h1 { font-size: clamp(38px,7vw,65px); margin-bottom: 18px; }
+    .hero h1 span { color: #55baff; }
+    .hero p { color: #c3d7ee; line-height: 1.7; }
+    .section { padding: 45px 7%; }
+    .section h2 { margin-bottom: 25px; font-size: 27px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+      gap: 22px;
+    }
+    .card {
+      background: #102c4e;
+      border: 1px solid #244b72;
+      border-radius: 14px;
+      padding: 25px;
+      transition: .2s;
+    }
+    .card:hover { transform: translateY(-5px); border-color: #55baff; }
+    .card .symbol { font-size: 38px; margin-bottom: 15px; }
+    .card h3 { margin-bottom: 12px; }
+    .card p { color: #bfd0e3; line-height: 1.6; font-size: 14px; }
+    .card a, button {
+      display: inline-block;
+      margin-top: 20px;
+      background: #168ee5;
+      color: white;
+      border: 0;
+      border-radius: 8px;
+      padding: 12px 18px;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .card a:hover, button:hover { background: #36aaff; }
+    .promo {
+      background: #102c4e;
+      border: 1px solid #244b72;
+      border-radius: 14px;
+      padding: 25px;
+      max-width: 600px;
+    }
+    input {
+      width: 100%;
+      padding: 13px;
+      margin-top: 15px;
+      border: 1px solid #416789;
+      border-radius: 8px;
+      background: #071b36;
+      color: white;
+    }
+    #result { margin-top: 12px; color: #65e5a0; }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #0b2343;
+      color: #9eb8d3;
+      font-size: 13px;
+    }
+    @media(max-width:600px) {
+      nav a { margin: 0 8px; }
+      header { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">NAVI-STUDIO</div>
+  <nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#jeux">Jeux</a>
+    <a href="#applications">Applications</a>
+  </nav>
+</header>
+
+<section class="hero" id="accueil">
+  <h1>Bienvenue sur <span>Navi-Studio</span></h1>
+  <p>Ton univers de jeux vidéo et d'applications au même endroit.</p>
+  <p>Découvre tous les projets Navi !</p>
+</section>
+
+<section class="section" id="jeux">
+  <h2>🎮 Nos jeux</h2>
+  <div class="grid">
+    <article class="card">
+      <div class="symbol">🌍</div>
+      <h3>Navi-Craft Realms</h3>
+      <p>Explore un univers de jeu et découvre tes aventures.</p>
+      <a href="https://lafamiliasavoia-source.github.io/Navi-Craft-Realms/" target="_blank" rel="noopener">Jouer</a>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="applications">
+  <h2>🚀 Nos applications</h2>
+  <div class="grid">
+    <article class="card">
+      <div class="symbol">🧭</div>
+      <h3>Navi-Route</h3>
+      <p>Ton application de navigation.</p>
+      <a href="https://navi-route.base44.app" target="_blank" rel="noopener">Ouvrir</a>
+    </article>
+    <article class="card">
+      <div class="symbol">🌤️</div>
+      <h3>Navi-Météo</h3>
+      <p>Découvre les prévisions météorologiques.</p>
+      <a href="https://navi-meteo.base44.app" target="_blank" rel="noopener">Ouvrir</a>
+    </article>
+    <article class="card">
+      <div class="symbol">🤖</div>
+      <h3>Navi-IA</h3>
+      <p>Découvre ton assistant intelligent.</p>
+      <a href="https://navi-ia-1.base44.app" target="_blank" rel="noopener">Ouvrir</a>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <h2>🎁 Code promotionnel</h2>
+  <div class="promo">
+    <p>Entre ton code promotionnel :</p>
+    <input id="promo" type="text" placeholder="Ton code promotionnel">
+    <button onclick="checkPromo()">Valider</button>
+    <p id="result"></p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Navi-Studio — Tous droits réservés.
+</footer>
+
+<script>
+function checkPromo() {
+  const code = document.getElementById("promo").value.trim();
+  const result = document.getElementById("result");
+
+  if (code.toLowerCase() === "enolam12") {
+    result.textContent = "Code reconnu ! Bienvenue sur Navi-Studio.";
+  } else {
+    result.textContent = "Code incorrect. Réessaie.";
+    result.style.color = "#ff8585";
+  }
+}
+</script>
+
+</body>
+</html>
